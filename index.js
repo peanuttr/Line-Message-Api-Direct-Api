@@ -4,6 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 
 import broadcastRoutes from './routes/broadcasts.js'
+import pushRoute from './routes/push.js'
 
 const app = express()
 dotenv.config()
@@ -13,6 +14,7 @@ app.use(bodyparser.urlencoded({limit: "30mb", extended: true}))
 app.use(cors())
 
 app.use('/broadcast', broadcastRoutes)
+app.use('/push', pushRoute)
 
 app.get('/', (req, res) => res.json({ message: 'Hi, Welcome to Broadcast API.' }))
 
